@@ -1,8 +1,13 @@
 from flask import Flask, jsonify, request
+from sqlalchemy import create_engine
+
 
 app= Flask(__name__)
 
 from products import products as pr
+
+db_url= ''
+engine= create_engine(db_url)
 
 @app.route("/api/products", methods=['GET'])
 def get_endpint():
